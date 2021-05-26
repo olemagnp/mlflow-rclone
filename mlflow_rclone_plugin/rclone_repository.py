@@ -41,9 +41,7 @@ class RCloneArtifactRepository(ArtifactRepository):
         self.rclone.log.setLevel(logging.ERROR)
         remotes = self.rclone.listremotes()
         if remotes["code"] != 0:
-            raise MlflowException(
-                "Error from RClone: " + remotes["error"].decode("utf-8")
-            )
+            raise remotes["error"]
 
         if self.config["remote"] is None:
             raise MlflowException("No remote found in uri")
