@@ -1,0 +1,12 @@
+name: MlRCloneDev
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - mlflow
+  - setuptools
+  - importlib_metadata
+  - pip
+  - pip:
+    - python_rclone
